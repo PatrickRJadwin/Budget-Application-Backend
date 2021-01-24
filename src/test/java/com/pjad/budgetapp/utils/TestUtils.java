@@ -88,6 +88,7 @@ public class TestUtils
         userSavings.setId(1L);
         userSavings.setPercentage(true);
         userSavings.setUserSecureInfo(getUserSecureInfo());
+        userSavings.setAccountName("Personal");
 
         return userSavings;
     }

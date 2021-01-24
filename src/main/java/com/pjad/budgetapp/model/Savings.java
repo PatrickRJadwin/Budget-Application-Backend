@@ -9,6 +9,7 @@ public class Savings implements Serializable
 
     private Double amountToSavings;
     private Boolean percentage;
+    private String accountName;
 
     public Double getAmountToSavings()
     {
@@ -30,10 +31,21 @@ public class Savings implements Serializable
         this.percentage = percentage;
     }
 
+    public String getAccountName()
+    {
+        return accountName;
+    }
+
+    public void setAccountName(String accountName)
+    {
+        this.accountName = accountName;
+    }
+
     @Override
     public String toString()
     {
         return new StringJoiner(", ", Savings.class.getSimpleName() + "[", "]")
+                .add("accountName='" + accountName + "'")
                 .add("amountToSavings=" + amountToSavings)
                 .add("percentage=" + percentage)
                 .toString();

@@ -29,6 +29,7 @@ public class UserSavings implements Serializable
 
     private Double amountToSavings;
     private Boolean percentage;
+    private String accountName;
 
     public Long getId()
     {
@@ -70,6 +71,16 @@ public class UserSavings implements Serializable
         this.percentage = percentage;
     }
 
+    public String getAccountName()
+    {
+        return accountName;
+    }
+
+    public void setAccountName(String accountName)
+    {
+        this.accountName = accountName;
+    }
+
     @Override
     public String toString()
     {
@@ -78,6 +89,7 @@ public class UserSavings implements Serializable
                 .add("userSecureInfo=" + userSecureInfo)
                 .add("amountToSavings=" + amountToSavings)
                 .add("percentage=" + percentage)
+                .add("accountName='" + accountName + "'")
                 .toString();
     }
 }

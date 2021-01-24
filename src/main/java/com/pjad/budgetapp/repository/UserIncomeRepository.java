@@ -14,8 +14,8 @@ public interface UserIncomeRepository extends CrudRepository<UserIncome, Long>
 {
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO user_income (id, post_tax, pre_tax, type, user_secure_info_id) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-    void insertValuesWithCustomIds(Long id, Double postTax, Double preTax, String type, Long userSecureInfoId);
+    @Query(value = "INSERT INTO user_income (id, user_secure_info_id, type, pre_tax, post_tax) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
+    void insertValuesWithCustomIds(Long id, Long userSecureInfoId, String type, Double preTax, Double postTax);
 
     List<UserIncome> getUserIncomesByUserSecureInfoId(Long id);
 }

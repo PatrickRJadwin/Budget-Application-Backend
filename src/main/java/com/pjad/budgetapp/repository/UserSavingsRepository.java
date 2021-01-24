@@ -14,8 +14,8 @@ public interface UserSavingsRepository extends CrudRepository<UserSavings, Long>
 {
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO user_savings (id, amount_to_savings, percentage, user_secure_info_id) VALUES (?1, ?2, ?3, ?4)", nativeQuery = true)
-    void insertValuesWithCustomIds(Long id, Double amountToSavings, Boolean percentage, Long userSecureInfoId);
+    @Query(value = "INSERT INTO user_savings (id, user_secure_info_id, amount_to_savings, percentage, account_name) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
+    void insertValuesWithCustomIds(Long id, Long userSecureInfoId, Double amountToSavings, Boolean percentage, String accountName);
 
     List<UserSavings> getUserSavingsByUserSecureInfoId(Long id);
 }

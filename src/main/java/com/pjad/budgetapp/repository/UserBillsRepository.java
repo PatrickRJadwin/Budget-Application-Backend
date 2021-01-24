@@ -14,8 +14,8 @@ public interface UserBillsRepository extends CrudRepository<UserBills, Long>
 {
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO user_bills (id, amount, pay_to, payment_date, user_secure_info_id) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
-    void insertValuesWithCustomIds(Long id, Double amount, String payTo, Integer paymentDate, Long userSecureInfoId);
+    @Query(value = "INSERT INTO user_bills(id, user_secure_info_id, pay_to, amount, payment_date) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
+    void insertValuesWithCustomIds(Long id, Long userSecureInfoId, String payTo, Double amount, Integer paymentDate);
 
     @Query(value = "SELECT * FROM user_bills WHERE user_secure_info_id = ?1", nativeQuery= true)
     List<UserBills> getUserBillsByUserSecureInfoId(Long secureInfoId);
