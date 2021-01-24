@@ -1,4 +1,4 @@
-package com.pjad.budgetapp.Entity;
+package com.pjad.budgetapp.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

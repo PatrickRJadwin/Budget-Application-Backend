@@ -1,4 +1,4 @@
-package com.pjad.budgetapp.Entity;
+package com.pjad.budgetapp.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 

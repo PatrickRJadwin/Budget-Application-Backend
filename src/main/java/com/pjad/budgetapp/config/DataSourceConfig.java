@@ -1,4 +1,4 @@
-package com.pjad.budgetapp.Config;
+package com.pjad.budgetapp.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
