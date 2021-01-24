@@ -23,7 +23,7 @@ public class UserSavingsRepositoryIntegrationTest
     public void whenCalledSave_thenGetObjectById()
     {
         userSecureInfoRepository.insertValuesWithCustomIds(-4L, "bob@domain.com", "password");
-        userSavingsRepository.insertValuesWithCustomIds(-4L, 150.00, false, -4L);
+        userSavingsRepository.insertValuesWithCustomIds(-4L, -4L,150.00, false, "Personal");
         UserSavings userDebts = userSavingsRepository.findById(-4L).orElse(new UserSavings());
 
         Assertions.assertEquals(150.00, userDebts.getAmountToSavings());

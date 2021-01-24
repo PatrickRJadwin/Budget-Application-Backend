@@ -64,6 +64,7 @@
             </column>
             <column name="amount_to_savings" type="decimal" />
             <column name="percentage" type="boolean" />
+            <column name="account_name" type="varchar(128)" />
         </createTable>
 
     </changeSet>

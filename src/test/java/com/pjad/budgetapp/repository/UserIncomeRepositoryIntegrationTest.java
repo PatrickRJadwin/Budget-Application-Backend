@@ -23,10 +23,10 @@ public class UserIncomeRepositoryIntegrationTest
     public void whenCalledSave_thenGetObjectById()
     {
         userSecureInfoRepository.insertValuesWithCustomIds(-4L, "bob@domain.com", "password");
-        userIncomeRepository.insertValuesWithCustomIds(-4L, 1000.00, 1258.00, "job", -4L);
+        userIncomeRepository.insertValuesWithCustomIds(-4L, -4L, "Job", 1258.00, 1000.00);
         UserIncome userIncome = userIncomeRepository.findById(-4L).orElse(new UserIncome());
 
-        Assertions.assertEquals("job", userIncome.getType());
+        Assertions.assertEquals("Job", userIncome.getType());
         userSecureInfoRepository.deleteById(-4L);
         userIncomeRepository.deleteById(-4L);
     }

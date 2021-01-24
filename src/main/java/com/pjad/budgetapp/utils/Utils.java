@@ -66,6 +66,7 @@ public class Utils
             Savings saving = new Savings();
             saving.setAmountToSavings(userSaving.getAmountToSavings());
             saving.setPercentage(userSaving.getPercentage());
+            saving.setAccountName(userSaving.getAccountName());
 
             savings.add(saving);
         });

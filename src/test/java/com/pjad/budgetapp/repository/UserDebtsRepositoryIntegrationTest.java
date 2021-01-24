@@ -23,10 +23,10 @@ public class UserDebtsRepositoryIntegrationTest
     public void whenCalledSave_thenGetObjectById()
     {
         userSecureInfoRepository.insertValuesWithCustomIds(-4L, "bob@domain.com", "password");
-        userDebtsRepository.insertValuesWithCustomIds(-4L, 100.00, 10.0, "capital one", 10.0, 14, 50.00, -4L);
+        userDebtsRepository.insertValuesWithCustomIds(-4L, -4L, "capital one", 500.00, 10.0, 100.00, 50.00, 14);
         UserDebts userDebts = userDebtsRepository.findById(-4L).orElse(new UserDebts());
 
-        Assertions.assertEquals(100.00, userDebts.getAmountOwed());
+        Assertions.assertEquals(500.00, userDebts.getAmountOwed());
         userSecureInfoRepository.deleteById(-4L);
         userDebtsRepository.deleteById(-4L);
     }

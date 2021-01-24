@@ -25,10 +25,10 @@ public class UserBillsRepositoryIntegrationTest
     public void whenCalledSave_thenGetObjectById()
     {
         userSecureInfoRepository.insertValuesWithCustomIds(-4L, "bob@domain.com", "password");
-        userBillsRepository.insertValuesWithCustomIds(-4L, 500.00, "rent", 14, -4L);
+        userBillsRepository.insertValuesWithCustomIds(-4L, -4L, "rent", 1450.00, 1);
         UserBills userBills = userBillsRepository.findById(-4L).orElse(new UserBills());
 
-        Assertions.assertEquals(500.00, userBills.getAmount());
+        Assertions.assertEquals(1450.00, userBills.getAmount());
         userSecureInfoRepository.deleteById(-4L);
         userBillsRepository.deleteById(-4L);
     }
@@ -37,10 +37,10 @@ public class UserBillsRepositoryIntegrationTest
     public void whenCalledSave_thenGetByForeignId()
     {
         userSecureInfoRepository.insertValuesWithCustomIds(-4L, "bob@domain.com", "password");
-        userBillsRepository.insertValuesWithCustomIds(-4L, 500.00, "rent", 14, -4L);
+        userBillsRepository.insertValuesWithCustomIds(-4L, -4L, "rent", 1450.00, 1);
         List<UserBills> userBills = userBillsRepository.getUserBillsByUserSecureInfoId(-4L);
 
-        Assertions.assertEquals(500.00, userBills.get(0).getAmount());
+        Assertions.assertEquals(1450.00, userBills.get(0).getAmount());
         userSecureInfoRepository.deleteById(-4L);
         userBillsRepository.deleteById(-4L);
     }

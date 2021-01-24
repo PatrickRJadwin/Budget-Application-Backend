@@ -14,8 +14,8 @@ public interface UserDebtsRepository extends CrudRepository<UserDebts, Long>
 {
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO user_debts (id, amount_owed, apr, lender, min_due_date, minimum_due, payment_amount, user_secure_info_id) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)", nativeQuery = true)
-    void insertValuesWithCustomIds(Long id, Double amountOwed, Double apr, String lender, Double minimumDue, Integer minimumDueDate, Double paymentAmount, Long userSecureInfoId);
+    @Query(value = "INSERT INTO user_debts (id, user_secure_info_id, lender, amount_owed, apr, payment_amount, minimum_due, min_due_date) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)", nativeQuery = true)
+    void insertValuesWithCustomIds(Long id, Long userSecureInfoId, String lender, Double amountOwed, Double apr, Double paymentAmount, Double minimumDue, Integer minimumDueDate);
 
     List<UserDebts> getUserDebtsByUserSecureInfoId(Long id);
 }
