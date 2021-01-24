@@ -1,0 +1,71 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd"
+
+                   logicalFilePath="db/changelog/db-changelog-1.0.xml">
+
+    <changeSet id="1" author="patrick">
+        <createTable tableName="user_secure_info">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="user_id_pk" />
+            </column>
+            <column name="email" type="varchar(64)" />
+            <column name="password" type="varchar(64)" />
+        </createTable>
+
+        <createTable tableName="user_income">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="user_income_id" />
+            </column>
+            <column name="user_secure_info_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="user_income_fk1" referencedTableName="user_secure_info" referencedColumnNames="id"/>
+            </column>
+            <column name="type" type="varchar(64)"/>
+            <column name="pre_tax" type="decimal" />
+            <column name="post_tax" type="decimal" />
+        </createTable>
+
+        <createTable tableName="user_bills">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="user_bills_pk" />
+            </column>
+            <column name="user_secure_info_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="user_bills_fk1" referencedTableName="user_secure_info" referencedColumnNames="id" />
+            </column>
+            <column name="pay_to" type="varchar(128)" />
+            <column name="amount" type="decimal" />
+            <column name="payment_date" type="int" />
+        </createTable>
+
+        <createTable tableName="user_debts">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="user_debts_pk"/>
+            </column>
+            <column name="user_secure_info_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="user_debts_fk1" referencedTableName="user_secure_info" referencedColumnNames="id" />
+            </column>
+            <column name="lender" type="varchar(128)" />
+            <column name="amount_owed" type="decimal" />
+            <column name="apr" type="decimal" />
+            <column name="payment_amount" type="decimal" />
+            <column name="minimum_due" type="decimal" />
+            <column name="min_due_date" type="int" />
+        </createTable>
+
+        <createTable tableName="user_savings">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" primaryKeyName="user_savings_pk"/>
+            </column>
+            <column name="user_secure_info_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="user_savings_fk1" referencedTableName="user_secure_info" referencedColumnNames="id" />
+            </column>
+            <column name="amount_to_savings" type="decimal" />
+            <column name="percentage" type="boolean" />
+        </createTable>
+
+    </changeSet>
+
+</databaseChangeLog>

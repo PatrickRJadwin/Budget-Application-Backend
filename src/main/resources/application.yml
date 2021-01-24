@@ -1,0 +1,18 @@
+logging:
+  level:
+    org:
+      hibernate:
+        type: error
+
+spring:
+    jpa:
+        hibernate:
+            ddl-auto: create
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+    datasource:
+        username:
+        password:
+        url: jdbc:postgresql://localhost:5432/budget
+        driver-class-name: org.postgresql.Driver
+    liquibase:
+        change-log: classpath:/db/changelog/db.changelog-master.xml
