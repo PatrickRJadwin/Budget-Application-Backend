@@ -7,6 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Repository
 public interface UserIncomeRepository extends CrudRepository<UserIncome, Long>
@@ -15,4 +16,6 @@ public interface UserIncomeRepository extends CrudRepository<UserIncome, Long>
     @Transactional
     @Query(value = "INSERT INTO user_income (id, post_tax, pre_tax, type, user_secure_info_id) VALUES (?1, ?2, ?3, ?4, ?5)", nativeQuery = true)
     void insertValuesWithCustomIds(Long id, Double postTax, Double preTax, String type, Long userSecureInfoId);
+
+    List<UserIncome> getUserIncomesByUserSecureInfoId(Long id);
 }
