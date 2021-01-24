@@ -1,3 +1,3 @@
-#Web Application for Managing Personal Budgets
+# Web Application for Managing Personal Budgets
 
 ### Under construction
