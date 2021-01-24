@@ -1,6 +1,6 @@
-package com.pjad.budgetapp.Repository;
+package com.pjad.budgetapp.repository;
 
-import com.pjad.budgetapp.Entity.UserBills;
+import com.pjad.budgetapp.entity.UserSavings;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,10 @@ import org.springframework.test.annotation.Rollback;
 @DataJpaTest
 @Rollback(value = false)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class UserBillsRepositoryIntegrationTest
+public class UserSavingsRepositoryIntegrationTest
 {
     @Autowired
-    private UserBillsRepository userBillsRepository;
+    private UserSavingsRepository userSavingsRepository;
 
     @Autowired
     private UserSecureInfoRepository userSecureInfoRepository;
@@ -23,11 +23,11 @@ public class UserBillsRepositoryIntegrationTest
     public void whenCalledSave_thenGetObjectById()
     {
         userSecureInfoRepository.insertValuesWithCustomIds(-4L, "bob@domain.com", "password");
-        userBillsRepository.insertValuesWithCustomIds(-4L, 500.00, "rent", 14, -4L);
-        UserBills userBills = userBillsRepository.findById(-4L).orElse(new UserBills());
+        userSavingsRepository.insertValuesWithCustomIds(-4L, 150.00, false, -4L);
+        UserSavings userDebts = userSavingsRepository.findById(-4L).orElse(new UserSavings());
 
-        Assertions.assertEquals(500.00, userBills.getAmount());
+        Assertions.assertEquals(150.00, userDebts.getAmountToSavings());
         userSecureInfoRepository.deleteById(-4L);
-        userBillsRepository.deleteById(-4L);
+        userSavingsRepository.deleteById(-4L);
     }
 }

@@ -1,4 +1,4 @@
-package com.pjad.budgetapp.Entity;
+package com.pjad.budgetapp.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -28,8 +28,8 @@ public class UserIncome implements Serializable
     private UserSecureInfo userSecureInfo;
 
     private String type;
-    private String preTax;
-    private String postTax;
+    private Double preTax;
+    private Double postTax;
 
     public Long getId()
     {
@@ -61,22 +61,22 @@ public class UserIncome implements Serializable
         this.type = type;
     }
 
-    public String getPreTax()
+    public Double getPreTax()
     {
         return preTax;
     }
 
-    public void setPreTax(String preTax)
+    public void setPreTax(Double preTax)
     {
         this.preTax = preTax;
     }
 
-    public String getPostTax()
+    public Double getPostTax()
     {
         return postTax;
     }
 
-    public void setPostTax(String postTax)
+    public void setPostTax(Double postTax)
     {
         this.postTax = postTax;
     }

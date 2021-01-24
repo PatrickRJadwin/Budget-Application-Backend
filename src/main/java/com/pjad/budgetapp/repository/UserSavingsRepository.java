@@ -1,6 +1,6 @@
-package com.pjad.budgetapp.Repository;
+package com.pjad.budgetapp.repository;
 
-import com.pjad.budgetapp.Entity.UserSavings;
+import com.pjad.budgetapp.entity.UserSavings;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
